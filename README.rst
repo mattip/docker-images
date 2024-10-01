@@ -12,7 +12,7 @@ Ubuntu focal (20.04) docker images (64-bit) with Pythons:
 * 3.10
 * 3.11
 * 3.12
-* 3.13
+* 3.13 (including 3.13-nogil)
 
 installed via ``apt-get install python2.7-dev`` (etc).
 

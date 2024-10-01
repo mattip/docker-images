@@ -22,10 +22,22 @@ for pyver in 3.6 3.7; do
     ${pybin} ${get_pip_fname}
 done
 wget $PIP_ROOT_URL/get-pip.py
-for pyver in 3.8 3.9 3.10 3.11 3.12 3.13; do
+get_pip_fname="get-pip.py"
+for pyver in 3.8 3.9 3.10 3.11 3.12; do
     pybin=python$pyver
     apt install -y ${pybin} ${pybin}-dev ${pybin}-tk ${pybin}-distutils
-    get_pip_fname="get-pip.py"
+    ${pybin} ${get_pip_fname}
+done
+for pyver in 3.13; do
+    pybin=python$pyver
+    # no -distutils
+    apt install -y ${pybin} ${pybin}-dev ${pybin}-tk
+    ${pybin} ${get_pip_fname}
+done
+for pyver in 3.13-nogil; do
+    pybin=python$pyver
+    # only pybin
+    apt install -y ${pybin}
     ${pybin} ${get_pip_fname}
 done
 BUILD_PKGS="zlib1g-dev libbz2-dev libncurses5-dev libreadline-gplv2-dev \
