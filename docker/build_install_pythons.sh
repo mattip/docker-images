@@ -14,7 +14,7 @@ for pyver in 2.7; do
     get_pip_fname="get-pip-${pyver}.py"
     ${pybin} ${get_pip_fname}
 done
-for pyver in 3.6; do
+for pyver in 3.6 3.7; do
     pybin=python$pyver
     apt install -y ${pybin} ${pybin}-dev ${pybin}-tk ${pybin}-distutils
     wget $PIP_ROOT_URL/pip/$pyver/get-pip.py -O get-pip-$pyver.py
@@ -22,7 +22,7 @@ for pyver in 3.6; do
     ${pybin} ${get_pip_fname}
 done
 wget $PIP_ROOT_URL/get-pip.py
-for pyver in 3.7 3.8 3.9 3.10 3.11 3.12 3.13; do
+for pyver in 3.8 3.9 3.10 3.11 3.12 3.13; do
     pybin=python$pyver
     apt install -y ${pybin} ${pybin}-dev ${pybin}-tk ${pybin}-distutils
     get_pip_fname="get-pip.py"
